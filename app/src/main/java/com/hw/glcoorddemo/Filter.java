@@ -103,6 +103,20 @@ public class Filter {
             0.0f, 1.0f,
     };
 
+    static final float COORD_FLIP[] = {
+            1.0f, -1.0f,
+            1.0f, 1.0f,
+            -1.0f, -1.0f,
+            -1.0f, 1.0f,
+    };
+
+    static final float TEXTURE_COORD_FLIP[] = {
+            0.0f, 1.0f,
+            0.0f, 0.0f,
+            1.0f, 1.0f,
+            1.0f, 0.0f,
+    };
+
     private String mVertexShader;
     private String mFragmentShader;
 
@@ -131,8 +145,8 @@ public class Filter {
     }
 
     public void loadVertex() {
-        float[] coord = COORD_REVERSE;
-        float[] texture_coord = TEXTURE_COORD_REVERSE;
+        float[] coord = COORD1;
+        float[] texture_coord = TEXTURE_COORD1;
 
         mCubeBuffer = ByteBuffer.allocateDirect(coord.length * 4)
                 .order(ByteOrder.nativeOrder())
